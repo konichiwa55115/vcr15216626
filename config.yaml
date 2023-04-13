@@ -1,0 +1,4 @@
+interval: 60
+channels:
+  - id: xxxxx
+    save_to: Gawr
