@@ -10,6 +10,7 @@ bot = Client(
 def command1(bot,message):
     bot.send_message(message.chat.id, "من فضلك اسم المسار الذي تريد الحفظ إليه")
 @bot.on_message(filters.private & filters.incoming & filters.text )
+def _telegram_file(client, message):
     user_id = message.from_user.id
     sent_message = message.reply_text('جار التسجيل', quote=True)
     subprocess.call(['python3', 'main.py'])
