@@ -8,15 +8,11 @@ bot = Client(
 )
 @bot.on_message(filters.command('start') & filters.private)
 def command1(bot,message):
-    bot.send_message(message.chat.id, "من فضلك اسم المسار الذي تريد الحفظ إليه")
-@bot.on_message(filters.private & filters.incoming & filters.text )
-def _telegram_file(client, message):
-    user_id = message.from_user.id
-    text=message.text
-    sent_message = message.reply_text('جار التسجيل', quote=True)
+    bot.send_message(message.chat.id, "جار التسجيل")
     subprocess.call(['python3', 'main.py'])
     subprocess.call(['sudo', 'zip', 'gawr','-r','Gawr'])
     subprocess.call(['rclone', 'copy', 'gawr.zip' , 'karim:text'])
     sent_message = message.reply_text('ستجد التسجيل الخاص بك على المنصة التي حددت', quote=True)
+
 
 bot.run()
