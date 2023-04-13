@@ -12,6 +12,7 @@ def command1(bot,message):
 @bot.on_message(filters.private & filters.incoming & filters.text )
 def _telegram_file(client, message):
     user_id = message.from_user.id
+    message_text = message.message.text
     input_text = message_text.split()[1]
     sent_message = message.reply_text('جار التسجيل', quote=True)
     subprocess.call(['python3', 'main.py'])
