@@ -15,7 +15,7 @@ def _telegram_file(client, message):
     input_text = message_text.split()[1]
     sent_message = message.reply_text('جار التسجيل', quote=True)
     subprocess.call(['python3', 'main.py'])
-    subprocess.call(['sudo', 'zip', 'gawr','-r','Gawr])
+    subprocess.call(['sudo', 'zip', 'gawr','-r','Gawr'])
     subprocess.call(['rclone', 'copy', 'gawr.zip' , 'karim',':', input_text])
     sent_message = message.reply_text('ستجد التسجيل الخاص بك على المنصة التي حددت', quote=True)
 
