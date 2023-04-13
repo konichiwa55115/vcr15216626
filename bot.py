@@ -8,9 +8,10 @@ bot = Client(
 )
 @bot.on_message(filters.command('start') & filters.private)
 def command1(bot,message):
-    bot.send_message(message.chat.id, "جار التسجيل")
+    bot.send_message(message.chat.id, "من فضلك اسم المسار الذي تريد الحفظ إليه")
+@bot.on_message(filters.private & filters.incoming & filters.text )
     subprocess.call(['python3', 'main.py'])
     subprocess.call(['sudo', 'zip', 'gawr','-r','Gawr])
-    subprocess.call(['rclone', 'copy', 'gawr.zip' , '"karim":"hamma262662"'])
+    subprocess.call(['rclone', 'copy', 'gawr.zip' , 'karim',':',text])
 
 bot.run()
